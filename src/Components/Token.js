@@ -17,6 +17,7 @@ class Token extends Component {
         let value = this.props.valeur
         return(
             <div className="Token">
+                <p>Vous avez demandé la monnaie sur {this.props.valeur}</p>
                 {this.tokensArr.map((token,i) => {
                     if(token<value){
                         let reste = value % token
