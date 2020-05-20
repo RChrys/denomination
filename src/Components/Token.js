@@ -28,6 +28,9 @@ class Token extends Component {
                             </p>
                         )
                     }
+                    else{
+                        return null
+                    }
                 })}
             </div>
         )
