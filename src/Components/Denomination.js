@@ -7,6 +7,7 @@ class Denomination extends Component {
 
         this.state = {
             btnClicked : false,
+            btnDisabled : true,
             valeur : 0
         }
     }
@@ -20,9 +21,10 @@ class Denomination extends Component {
     handleChange = (event) =>{
         const { value } = event.target
         console.log(value)
-        if(value>=1){
+        if(!isNaN(value) && value>=1){
             this.setState({
                 btnClicked : false,
+                btnDisabled : false,
                 valeur : value
             })
         }
@@ -36,7 +38,7 @@ class Denomination extends Component {
                 <h1>Denomination</h1>
                 <label>Saisir le montant</label>
                 <input type="number" onChange={this.handleChange}/>
-                <input type="button" value="Envoyer" onClick={this.handleClick}/>
+                <input type="button" value="Envoyer" onClick={this.handleClick} disabled={this.state.btnDisabled}/>
                 {this.state.btnClicked && <Token valeur={this.state.valeur} tokens={this.props.denominations}/>}
             </div>
         )
